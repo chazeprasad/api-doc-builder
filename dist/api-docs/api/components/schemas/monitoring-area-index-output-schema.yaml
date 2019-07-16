@@ -1,0 +1,6 @@
+MonitoringAreaIndexOutputSchema:
+    type: array
+    properties:
+        id:
+            - type: string
+

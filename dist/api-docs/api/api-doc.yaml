@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+    title: Alertizen API
+    description: API for Alertizen web & mobile apps
+    version: 0.0.1
+servers:
+# - url: http://api.example.com/v1
+# description: Optional server description, e.g. Main (production) server
+# - url: http://staging-api.example.com
+# description: Optional server description, e.g. Internal staging server for testing
+- url: http://127.0.0.1:3000
+description: Internal staging server for api-testing
+
+# 1) Define the security scheme type (HTTP bearer)
+components:
+    securitySchemes:
+        JWT:
+            type: http
+            scheme: bearer
+            bearerFormat: JWT
+# 2) Apply the security globally to all operations
+# security:
+#     - bearerAuth: []
+
+tags:
+- name: "auth"
+  description: "Authentication: Login and Signup to Alertizen"
+- name: "users"
+  description: "user"
+- name: "monitoring-areas"
+  description: "Monitoring Areas"
+
+paths:
+    /auth/login:
+        $ref: 'paths/auth-login.yaml'
+    /auth/signup:
+        $ref: 'paths/auth-signup.yaml'
+    /api/monitoring-areas:
+        $ref: 'paths/monitoring-area-index.yaml'
+    /api/monitoring-areas/{id}:
+        $ref: 'paths/monitoring-area-show.yaml'
+
+

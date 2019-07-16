@@ -1,0 +1,30 @@
+post:
+    tags:
+        - "auth"
+    # security:
+    #     - bearerAuth:[]
+    summary: Signup to Alertizen.
+    description: Add a new user.
+    requestBody:
+        # description: Optional description in *Markdown*
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: '../components/schemas/signup-input-schema.yaml'
+                example:
+                    first_name: Ricky
+                    last_name: Ponting
+                    email: ricky@xyz.com
+                    password: pass1234
+                    confirm_password: pass1234
+    responses:
+        '201':
+            description: CREATED
+            content:
+                application/json:
+                    schema:
+                        $ref: '../components/schemas/signup-output-schema.yaml'
+                    example:
+                        message: Account created successfully
+                        auth_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c

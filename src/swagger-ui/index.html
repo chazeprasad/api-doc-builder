@@ -1,0 +1,81 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <title>Swagger UI</title>
+  <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+  <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      margin: 0;
+      background: #fafafa;
+    }
+    .body-param__text{
+      border: 2px solid #04a78c !important;
+    }
+    pre {
+      font-family: 'Courier New', Courier, Open Sans, sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 400 !important;
+      /* font-size: .85em !important; */
+      line-height: 1.6em !important;
+      overflow: auto !important;
+      max-height: 200px !important;
+      cursor: pointer !important;
+    }
+  </style>
+
+  <!-- <link rel="stylesheet" href="./themes/3.x/theme-feeling-blue.css"> -->
+</head>
+
+<body>
+  <div id="swagger-ui"></div>
+
+  <script src="./swagger-ui-bundle.js"> </script>
+  <script src="./swagger-ui-standalone-preset.js"> </script>
+  <script>
+    window.onload = function () {
+
+      // Build a system
+      const ui = SwaggerUIBundle({
+        url: "./api/api-doc.yaml",
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout"
+      })
+
+      window.ui = ui
+
+
+    }
+
+
+  </script>
+
+
+</body>
+
+</html>

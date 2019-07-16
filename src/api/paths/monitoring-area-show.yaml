@@ -1,0 +1,93 @@
+get:
+    summary: Find a Monitoring Area by ID.
+    operationId: showMonitoringAreaById
+    tags:
+    - "monitoring-areas"
+    security:
+    - JWT: []
+    parameters:
+    - in: path
+      name: id
+      schema:
+          type: string
+      required: true
+    description: ID of the Monitoring Area to get
+    responses:
+        '200':
+            description: OK
+            content:
+                application/json:
+                    schema:
+                        $ref: '../components/schemas/monitoring-area-index-output-schema.yaml'
+        '400':
+            $ref: '../components/responses/bad-request.yaml#/BadRequest'
+        '401':
+            $ref: '../components/responses/unauthorized.yaml#/Unauthorized'
+        '404':
+            $ref: '../components/responses/not-found.yaml#/NotFound'
+put:
+    summary: Update a Monitoring Area by ID.
+    operationId: updateMonitoringAreaById
+    tags:
+    - "monitoring-areas"
+    security:
+    - JWT: []
+    parameters:
+    - in: path
+      name: id
+      schema:
+          type: string
+      required: true
+    description: ID of the Monitoring Area to update
+    requestBody:
+        # description: Optional description in *Markdown*
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: '../components/schemas/monitoring-area-schema.yaml'
+                example:
+                    address: 100A, 1st Street, Toledo, OH
+                    lat: 41.651031
+                    lng: -83.541939
+                    owner: 1122334455667788
+    responses:
+        '200':
+            description: OK
+            content:
+                application/json:
+                    schema:
+                        $ref: '../components/schemas/monitoring-area-index-output-schema.yaml'
+        '400':
+            $ref: '../components/responses/bad-request.yaml#/BadRequest'
+        '401':
+            $ref: '../components/responses/unauthorized.yaml#/Unauthorized'
+        '404':
+            $ref: '../components/responses/not-found.yaml#/NotFound'
+delete:
+    summary: Delete a Monitoring Area by ID.
+    operationId: deleteMonitoringAreaById
+    tags:
+    - "monitoring-areas"
+    security:
+    - JWT: []
+    parameters:
+    - in: path
+      name: id
+      schema:
+          type: string
+      required: true
+    description: ID of the Monitoring Area to delete
+    responses:
+        '200':
+            description: OK
+            content:
+                application/json:
+                    schema:
+                        $ref: '../components/schemas/monitoring-area-index-output-schema.yaml'
+        '400':
+            $ref: '../components/responses/bad-request.yaml#/BadRequest'
+        '401':
+            $ref: '../components/responses/unauthorized.yaml#/Unauthorized'
+        '404':
+            $ref: '../components/responses/not-found.yaml#/NotFound'

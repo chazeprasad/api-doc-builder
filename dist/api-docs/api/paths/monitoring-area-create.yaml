@@ -1,0 +1,29 @@
+post:
+    tags:
+    - "auth"
+    security:
+    - jwt:[]
+    summary: Add Monitoring Area
+    requestBody:
+        # description: Optional description in *Markdown*
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: '../components/schemas/monitoring-area-schema.yaml'
+                example:
+                    address: 100A, 1st Street, Toledo, OH
+                    lat: 41.651031
+                    lng: -83.541939
+                    owner: 1122334455667788
+
+    responses:
+        '201':
+            description: CREATED
+            content:
+                application/json:
+                    schema:
+                        $ref: '../components/schemas/signup-output-schema.yaml'
+                    example:
+                        message: Account created successfully
+                        auth_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c

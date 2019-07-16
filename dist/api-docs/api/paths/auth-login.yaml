@@ -1,0 +1,24 @@
+post:
+    tags:
+        - "auth"
+    summary: Returns a list of auths.
+    requestBody:
+        # description: Optional description in *Markdown*
+        required: true
+        content:
+            application/json:
+                schema:
+                    $ref: '../components/schemas/login-input-schema.yaml'
+                example:
+                    email: ricky@xyz.com
+                    password: pass1234
+    responses:
+        '200':
+            description: OK
+            content:
+                application/json:
+                    schema:
+                        $ref: '../components/schemas/login-output-schema.yaml'
+                    example:
+                        auth_token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+

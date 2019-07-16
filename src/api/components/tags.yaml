@@ -1,0 +1,6 @@
+components:
+    tags:
+    - name: "auth"
+      description: "Authentication: Login and Signup to Alertizen"
+    - name: "users"
+      description: "user"

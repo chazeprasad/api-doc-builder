@@ -1,0 +1,11 @@
+MonitoringAreaSchema:
+    type: object
+    properties:
+        address:
+            - type: string
+        lat:
+            - type: number
+        lng:
+            - type: number
+        owner:
+            - type: string

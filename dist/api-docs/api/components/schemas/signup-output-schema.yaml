@@ -1,0 +1,8 @@
+SignupOutputSchema:
+    type: object
+    properties:
+        message:
+            - type: string
+        auth_token:
+            - type: string
+
